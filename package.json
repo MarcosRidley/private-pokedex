@@ -1,0 +1,26 @@
+{
+  "name": "private-pokedex",
+  "version": "1.0.0",
+  "description": "I love pokemon and want to have an easily-accessible pokedex so that when I play pokemon showdown I don't get absolutely destroyed by everyone.",
+  "main": "fetchPokemon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcosRidley/private-pokedex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcosRidley/private-pokedex/issues"
+  },
+  "homepage": "https://github.com/MarcosRidley/private-pokedex#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.0"
+  }
+}
