@@ -1,0 +1,62 @@
+.navbar-nav {
+    margin: auto;
+}
+#container-pesquisa {
+    width: 30%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+#container-pesquisa h2 {
+    margin-bottom: 30px;
+}
+
+#container-cards{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px
+    
+}
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(192, 192, 192);
+    width: 200px;
+    border: solid 2px black;
+    border-radius: 4%;
+    margin: 30px;
+}
+small {
+    margin-inline-end: auto;
+    margin-left: 10px;
+    color: rgb(146, 146, 146);
+}
+
+.type-container {
+    display: flex;
+    padding-bottom: 5px;
+    flex-direction: row;
+    margin-inline-end: auto;
+    margin-left: 10px;
+}
+
+.type {
+    padding-right: 5px;
+    padding-left: 5px;
+    border: solid 2px black;
+    border-radius: 4%;
+
+}
+p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.eletric{
+    background-color: yellow;
+}
