@@ -4,8 +4,8 @@ async function fetchAllPokemon() {
 	await fetch('https://pokeapi.co/api/v2/pokemon?limit=898&offset=0')
 		.then((response) => response.json())
 		.then((pokemonData) =>
-			pokemonData.results.forEach((pokemon) => fetchPokemon(pokemon.name) )
-		)
+			pokemonData.results.forEach((pokemon) => fetchPokemon(pokemon.name))
+		).then()
 		.catch((erro) => console.log('Ocorreu um erro no acesso a API', erro));
 }
 
@@ -21,7 +21,7 @@ async function fetchPokemon(nomePokemon) {
 	const cardContainer = document.querySelector('#container-cards');
 	const pokemonCard = document.createElement('div');
   pokemonCard.classList.add('cards')
-	const pokemonName = document.createElement('h1');
+	const pokemonName = document.createElement('h4');
 	pokemonName.textContent = pokemon.name;
 	const pokemonPicture = document.createElement('img');
 	pokemonPicture.src = pokemon.sprites.front_default;
@@ -65,9 +65,6 @@ function createArceusTyping(card) {
   card.appendChild(firstType)
 }
 
-// fetchPokemon('charizard');
-// fetchPokemon('zapdos');
-// fetchPokemon('lucario');
 
 
 function createAllPokeList() {
