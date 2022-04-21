@@ -1,5 +1,5 @@
 // import fetch from 'node-fetch';
-
+let allCards = []
 
 async function fetchAllPokemon() {
   const allPokes = await (await fetch('https://pokeapi.co/api/v2/pokemon?limit=898&offset=0')).json();
@@ -9,9 +9,6 @@ resolvedPromises.forEach(async (item) => {
     createPokemonCard(result)
   })
 }
-//{ "NAME": "ronaldo"}
-//{ name: "ronaldo"}
-//
 
 
 function fetchPokemon(nomePokemon) {
@@ -62,7 +59,7 @@ function createTyping(type1, type2, card) {
 function createArceusTyping(card) {
   const firstType = document.createElement('p');
 	firstType.textContent = 'Any';
-  firstType.classList.add('arceus');
+  firstType.classList.add('arceus', 'type');
   card.appendChild(firstType)
 }
 
@@ -77,3 +74,17 @@ async function createAllPokeList() {
 }
 
 window.onload = createAllPokeList
+
+function filterPokemon(event) {
+  if (allCards.length === 0) allCards = document.querySelectorAll('.cards')
+  const input = event.target.value
+  document.querySelectorAll('.cards').length === allCards.length ? allCards.forEach((card) => card.parentElement.removeChild(card)) : [...document.querySelectorAll('.cards')].forEach((card) => card.parentElement.removeChild(card))
+const cardFilter = [...allCards].filter((card) => card.children[0].textContent.includes(input) || card.children[2].textContent.includes(input))
+cardFilter.forEach((card) => document.querySelector('#container-cards').appendChild(card))
+if (input.length === 0) {
+  allCards.forEach((card) => document.querySelector('#container-cards').appendChild(card))
+}
+
+}
+
+document.querySelector("#container-pesquisa input").addEventListener('keyup', filterPokemon);
