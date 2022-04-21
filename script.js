@@ -18,9 +18,39 @@ function fetchPokemon(nomePokemon) {
 	return fetch(`https://pokeapi.co/api/v2/pokemon/${nomePokemon}`);
 }
 
+function editPokemonModal(pokemon) {
+	document.getElementById('exampleModalLabel').textContent = pokemon.name;
+	const modalBody = document.getElementById('modal-body');
+  modalBody.innerHTML = ""
+	const frontImage = document.createElement('img');
+	const backImage = document.createElement('img');
+	const ShinyFrontImage = document.createElement('img');
+	const ShinyBackImage = document.createElement('img');
+	frontImage.src = pokemon.sprites.front_default;
+	backImage.src = pokemon.sprites.back_default;
+	ShinyFrontImage.src = pokemon.sprites.front_shiny;
+	ShinyBackImage.src = pokemon.sprites.back_shiny;
+	[frontImage, backImage, ShinyFrontImage, ShinyBackImage].forEach((image) => modalBody.appendChild(image));
+	if (pokemon.name !== 'arceus') {
+		if (pokemon.types[1]) {
+			createTyping(
+				pokemon.types[0].type.name,
+				pokemon.types[1].type.name,
+				modalBody
+			);
+		} else {
+			createTyping(pokemon.types[0].type.name, false, modalBody);
+		}
+	}
+}
+
 function createPokemonCard(pokemon) {
 	const cardContainer = document.querySelector('#container-cards');
-	const pokemonCard = document.createElement('div');
+	const pokemonCard = document.createElement('button');
+	// making button clickable to summon modal:
+	pokemonCard.setAttribute('data-bs-toggle', 'modal');
+	pokemonCard.setAttribute('data-bs-target', '#exampleModal');
+	// done
 	pokemonCard.classList.add('cards');
 	const pokemonName = document.createElement('h4');
 	pokemonName.textContent = pokemon.name;
@@ -44,10 +74,11 @@ function createPokemonCard(pokemon) {
 	} else {
 		createArceusTyping;
 	}
+  pokemonCard.addEventListener('click', () => {editPokemonModal(pokemon)})
 	cardContainer.appendChild(pokemonCard);
 }
 
-function createTyping(type1, type2, card) {
+function createTyping(type1, type2, whereToAppend) {
 	const firstType = document.createElement('p');
 	const typeContainer = document.createElement('div');
 	typeContainer.classList.add('type-container');
@@ -60,7 +91,7 @@ function createTyping(type1, type2, card) {
 		secondType.classList.add(type2, 'type');
 		typeContainer.appendChild(secondType);
 	}
-	card.appendChild(typeContainer);
+	whereToAppend.appendChild(typeContainer);
 }
 
 function createArceusTyping(card) {
