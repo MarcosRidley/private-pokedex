@@ -59,8 +59,10 @@ p{
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 12px;
+    font-family: "Fira Sans","Trebuchet MS",Ubuntu,Helvetica,Arial,sans-serif;
 }
-.eletric { 
+
+.electric { 
     background-color: yellow;
 }
 .normal {
@@ -110,4 +112,7 @@ p{
 }
 .fairy {
     background-color: rgb(124, 91, 123)
+}
+.fire {
+    background-color: rgb(221, 101, 101)
 }
