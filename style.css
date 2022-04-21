@@ -72,27 +72,42 @@ p{
 .grass {
     background-color: rgb(136, 233, 91)
 }
-.normal {
-    background-color: red
+.poison {
+    background-color: rgba(192, 101, 192, 0.534)
 }
-.normal {
-    background-color: red
+.ice {
+    background-color: rgb(98, 195, 233)
 }
-.normal {
-    background-color: red
+.fighting {
+    background-color: rgb(212, 105, 105)
 }
-.normal {
-    background-color: red
+.ground {
+    background-color: rgb(199, 154, 111)
 }
-.normal {
-    background-color: red
+.flying {
+    background-color: rgb(146, 105, 212)
 }
-.normal {
-    background-color: red
+.psychic {
+    background-color: rgb(223, 83, 188)
 }
-.normal {
-    background-color: red
+.bug {
+    background-color: rgb(212, 240, 52)
 }
-.normal {
-    background-color: red
+.rock {
+    background-color: rgb(192, 170, 109)
+}
+.ghost {
+    background-color: rgb(168, 125, 224)
+}
+.dragon {
+    background-color: rgb(114, 76, 150)
+}
+.dark {
+    background-color: rgb(83, 62, 38)
+}
+.steel {
+    background-color: rgb(107, 99, 93)
+}
+.fairy {
+    background-color: rgb(124, 91, 123)
 }

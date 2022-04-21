@@ -12,11 +12,12 @@ function fetchAllPokemon() {
 function fetchPokemon(nomePokemon) {
 	fetch(`https://pokeapi.co/api/v2/pokemon/${nomePokemon}`)
 		.then((response) => response.json())
-		.then((pokemonData) => { createPokemonCard(pokemonData)})
+		.then((pokemonData) => { 
+			createPokemonCard(pokemonData)})
 		.catch((erro) => console.log('Ocorreu um erro no acesso a API', erro));
 }
 
-async function createPokemonCard(pokemon) {
+function createPokemonCard(pokemon) {
 	const cardContainer = document.querySelector('#container-cards');
 	const pokemonCard = document.createElement('div');
   pokemonCard.classList.add('cards')
@@ -64,7 +65,7 @@ function createArceusTyping(card) {
 // fetchPokemon('lucario');
 
 
-async function createAllPokeList() {
+function createAllPokeList() {
   try { fetchAllPokemon()
   } catch(error) {
     console.log("Ocorreu um erro: ", error)
