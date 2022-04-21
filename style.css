@@ -18,7 +18,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 30px
+    margin-top: 30px;
+    flex-wrap: wrap;
     
 }
 .cards {
