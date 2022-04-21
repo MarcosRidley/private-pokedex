@@ -33,32 +33,39 @@ function addPokemonImagesToModal(pokemon, div) {
 }
 
 function createHabilityList(pokemon, div) {
-  const habilityListTitle = document.createElement('h3');
-  habilityListTitle.classList.add('hability-list-title')
-  habilityListTitle.textContent = 'Habilities:'
-  div.appendChild(habilityListTitle)
-  const habilityContainer = document.createElement('div');
-  habilityContainer.classList.add('hability-container')
-  div.appendChild(habilityContainer)
-  pokemonHabilities = [];
-  pokemon.abilities.forEach((hability) => pokemonHabilities.push(hability.ability.name));
-  const searcheableAbility = pokemonHabilities.map((hability) => hability.split('-').join('_'));
-  let i = 0;
-  pokemonHabilities.forEach((hability) => {
-    const newHabilityParagraph = document.createElement('a');
-    newHabilityParagraph.textContent = hability;
-    habilityContainer.appendChild(newHabilityParagraph);
-    newHabilityParagraph.href = `https://bulbapedia.bulbagarden.net/wiki/${searcheableAbility[i]}_(Ability)`;
-    i++
-  });
+	const habilityListTitle = document.createElement('h3');
+	habilityListTitle.classList.add('hability-list-title');
+	habilityListTitle.textContent = 'Habilities:';
+	div.appendChild(habilityListTitle);
+	const habilityContainer = document.createElement('div');
+	habilityContainer.classList.add('hability-container');
+	div.appendChild(habilityContainer);
+	pokemonHabilities = [];
+	pokemon.abilities.forEach((hability) =>
+		pokemonHabilities.push(hability.ability.name)
+	);
+	const searcheableAbility = pokemonHabilities.map((hability) => {
+    const splitHability = hability.split('-')
+    capsSplitHability = splitHability.map((hability) => hability[0].toUpperCase() + hability.slice(1, hability.length));
+    return capsSplitHability.join("_");
+  }
+	);
+	let i = 0;
+	pokemonHabilities.forEach((hability) => {
+		const newHabilityParagraph = document.createElement('a');
+		newHabilityParagraph.textContent = hability;
+		habilityContainer.appendChild(newHabilityParagraph);
+		newHabilityParagraph.href = `https://bulbapedia.bulbagarden.net/wiki/${searcheableAbility[i]}_(Ability)`;
+		i++;
+	});
 }
 
 function createStatList(pokemon, div) {
-  const statTitle = document.createElement('h3');
-  statTitle.textContent = "Stats:";
-  div.appendChild(statTitle)
-  const StatContainer = document.createElement('div');
-  div.appendChild(StatContainer)
+	const statTitle = document.createElement('h3');
+	statTitle.textContent = 'Stats:';
+	div.appendChild(statTitle);
+	const StatContainer = document.createElement('div');
+	div.appendChild(StatContainer);
 	pokemon.stats.forEach((stat) => {
 		const thisStat = document.createElement('p');
 		thisStat.classList.add('stats');
@@ -85,15 +92,15 @@ function editPokemonModal(pokemon) {
 			createTyping(pokemon.types[0].type.name, false, modalBody);
 		}
 	}
-  const pokemonHabilityList = document.createElement('div');
-  pokemonHabilityList.classList.add('hability-list');
-  createHabilityList(pokemon, pokemonHabilityList);
-  modalBody.appendChild(pokemonHabilityList);
+	const pokemonHabilityList = document.createElement('div');
+	pokemonHabilityList.classList.add('hability-list');
+	createHabilityList(pokemon, pokemonHabilityList);
+	modalBody.appendChild(pokemonHabilityList);
 	const statList = document.createElement('div');
 	statList.classList.add('stat-list');
 	createStatList(pokemon, statList);
 	modalBody.appendChild(statList);
-};
+}
 
 function createPokemonCard(pokemon) {
 	const cardContainer = document.querySelector('#container-cards');
@@ -160,10 +167,10 @@ async function createAllPokeList() {
 	}
 }
 
-window.onload = createAllPokeList;
+
 
 function filterPokemon(event) {
-	if (allCards.length === 0) allCards = document.querySelectorAll('.cards');
+  if (allCards.length === 0) allCards = document.querySelectorAll('.cards');
 	const input = event.target.value.toLowerCase();
 	document.querySelectorAll('.cards').length === allCards.length
 		? allCards.forEach((card) => card.parentElement.removeChild(card))
@@ -184,7 +191,8 @@ function filterPokemon(event) {
 		);
 	}
 }
-
+window.onload = createAllPokeList;
 document
 	.querySelector('#container-pesquisa input')
 	.addEventListener('keyup', filterPokemon);
+
