@@ -18,13 +18,8 @@ function fetchPokemon(nomePokemon) {
 	return fetch(`https://pokeapi.co/api/v2/pokemon/${nomePokemon}`);
 }
 
-function editPokemonModal(pokemon) {
-	document.getElementById('staticBackdropLabel').textContent = pokemon.name;
-	const modalBody = document.getElementById('modal-body');
-  modalBody.innerHTML = ""
-  const imagesDiv = document.createElement('div');
-  modalBody.appendChild(imagesDiv)
-	const frontImage = document.createElement('img');
+function addPokemonImagesToModal(pokemon, div) {
+  const frontImage = document.createElement('img');
 	const backImage = document.createElement('img');
 	const ShinyFrontImage = document.createElement('img');
 	const ShinyBackImage = document.createElement('img');
@@ -32,7 +27,25 @@ function editPokemonModal(pokemon) {
 	backImage.src = pokemon.sprites.back_default;
 	ShinyFrontImage.src = pokemon.sprites.front_shiny;
 	ShinyBackImage.src = pokemon.sprites.back_shiny;
-	[frontImage, backImage, ShinyFrontImage, ShinyBackImage].forEach((image) => imagesDiv.appendChild(image));
+	[frontImage, backImage, ShinyFrontImage, ShinyBackImage].forEach((image) => div.appendChild(image));
+}
+
+function createStatList(pokemon, div) {
+  const statOrder = ['hp', 'attack','defense','special-attack','special-defense','speed'];
+  pokemon.stats.forEach((stat) => {
+    const thisStat = document.createElement('p');
+    thisStat.textContent = `${stat.stat.name}: ${stat.base_stat}`
+    div.appendChild(thisStat)
+  })
+}
+
+function editPokemonModal(pokemon) {
+	document.getElementById('staticBackdropLabel').textContent = pokemon.name;
+	const modalBody = document.getElementById('modal-body');
+  modalBody.innerHTML = ""
+  const imagesDiv = document.createElement('div');
+  modalBody.appendChild(imagesDiv)
+addPokemonImagesToModal(pokemon, imagesDiv)
 	if (pokemon.name !== 'arceus') {
 		if (pokemon.types[1]) {
 			createTyping(
@@ -44,6 +57,10 @@ function editPokemonModal(pokemon) {
 			createTyping(pokemon.types[0].type.name, false, modalBody);
 		}
 	}
+  const statList = document.createElement('div');
+
+  createStatList(pokemon, statList);
+  modalBody.appendChild(statList)
 }
 
 function createPokemonCard(pokemon) {
