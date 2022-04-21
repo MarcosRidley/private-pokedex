@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
+
+
 .navbar-nav {
     margin: auto;
 }
@@ -33,6 +36,9 @@
     border-radius: 4%;
     margin: 30px;
 }
+.cards h4 {
+    text-transform: capitalize;
+}
 small {
     margin-inline-end: auto;
     margin-left: 10px;
@@ -59,14 +65,18 @@ p{
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 12px;
-    font-family: "Fira Sans","Trebuchet MS",Ubuntu,Helvetica,Arial,sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 
+main {
+    width: 60%;
+    margin: auto;
+}
 .electric { 
     background-color: yellow;
 }
 .normal {
-    background-color: red
+    background-color: rgb(184, 159, 159)
 }
 .water {
     background-color: rgb(95, 95, 235)
