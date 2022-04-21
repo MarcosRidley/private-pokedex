@@ -1,48 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
 
-
 .navbar-nav {
     margin: auto;
 }
-#container-pesquisa {
-    width: 30%;
-    margin: 0 auto;
+main {
+    width: 50%;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
+
+}
+
+#container-pesquisa {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
     margin-top: 5%;
+    
 }
 #container-pesquisa h2 {
     margin-bottom: 30px;
 }
 
-#container-cards{
+#container-cards {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
     flex-wrap: wrap;
-    
+    justify-content: space-evenly;
 }
 .cards {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(192, 192, 192);
+    background-color: rgba(212, 212, 212, 0.247);
     width: 200px;
     border: solid 2px black;
-    border-radius: 4%;
-    margin: 30px;
+    border-radius: 5px;
+    margin-top: 30px;
 }
 .cards h4 {
     text-transform: capitalize;
+    padding-top: 5px;
+}
+.cards:hover {
+    background-color: rgba(201, 201, 201, 0.438); 
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.6);
 }
 small {
     margin-inline-end: auto;
     margin-left: 10px;
-    color: rgb(146, 146, 146);
+    color: rgb(105, 105, 105);
 }
 
 .type-container {
@@ -54,13 +66,19 @@ small {
 }
 
 .type {
-    padding-right: 5px;
-    padding-left: 5px;
-    border-radius: 3px;
-    line-height: 18px;
+    padding-right: 7px;
+    padding-left: 7px;
+    border-radius: 5px;
+    line-height: 20px;
     text-align: center;
+    margin-right: 5px;
 
 }
+.type-container p{
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
 p{
     margin-top: 0px;
     margin-bottom: 0px;
@@ -68,10 +86,6 @@ p{
     font-family: 'Fira Sans', sans-serif;
 }
 
-main {
-    width: 60%;
-    margin: auto;
-}
 .electric { 
     background-color: yellow;
 }
@@ -79,7 +93,8 @@ main {
     background-color: rgb(184, 159, 159)
 }
 .water {
-    background-color: rgb(95, 95, 235)
+    background-color: rgb(95, 95, 235);
+    color: white;
 }
 .grass {
     background-color: rgb(136, 233, 91)
@@ -125,4 +140,31 @@ main {
 }
 .fire {
     background-color: rgb(221, 101, 101)
+}
+
+@media (max-width: 1360px) {
+    main {
+        width: 70%;
+    }
+}
+@media (max-width: 450px){
+    main {
+        width: 90%;
+    }
+    #container-pesquisa h2 {
+        font-size: 50px;
+    }
+    #container-pesquisa { 
+        width: 100%;
+    }
+    #container-cards{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .cards {
+        width: 270px;
+    }
 }
