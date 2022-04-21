@@ -1,7 +1,7 @@
 // import fetch from 'node-fetch';
 
-function fetchAllPokemon() {
-	fetch('https://pokeapi.co/api/v2/pokemon?limit=898&offset=0')
+async function fetchAllPokemon() {
+	await fetch('https://pokeapi.co/api/v2/pokemon?limit=898&offset=0')
 		.then((response) => response.json())
 		.then((pokemonData) =>
 			pokemonData.results.forEach((pokemon) => fetchPokemon(pokemon.name) )
