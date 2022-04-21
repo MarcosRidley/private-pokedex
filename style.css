@@ -4,7 +4,7 @@
     margin: auto;
 }
 main {
-    width: 50%;
+    width: 40%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -72,11 +72,14 @@ small {
     line-height: 20px;
     text-align: center;
     margin-right: 5px;
-
+    width: 70px
 }
 .type-container p{
     text-transform: uppercase;
     font-size: 14px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
 }
 
 p{
@@ -94,7 +97,6 @@ p{
 }
 .water {
     background-color: rgb(95, 95, 235);
-    color: white;
 }
 .grass {
     background-color: rgb(136, 233, 91)
@@ -139,16 +141,19 @@ p{
     background-color: rgb(124, 91, 123)
 }
 .fire {
-    background-color: rgb(221, 101, 101)
+    background-color: rgb(255, 0, 0);
 }
 .modal {
     top: 25%;   
 }
 
-@media (max-width: 1360px) {
+@media (max-width: 1400px) {
     main {
-        width: 70%;
+        width: 50%;
     }
+    #container-pesquisa { 
+        width: 60%;
+}
 }
 @media (max-width: 450px){
     main {
@@ -170,4 +175,32 @@ p{
     .cards {
         width: 270px;
     }
+}
+
+/* Modal Style's */
+
+#staticBackdropLabel {
+    text-align: center;
+    flex: 1;
+    text-transform: capitalize;
+}
+#modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#modal-body div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#modal-body .type-container .type{
+    transform: scale(1.2);
+    margin-right: 20px;
+    font-weight:550;
+}
+#modal-body .type-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
