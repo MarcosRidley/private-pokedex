@@ -19,7 +19,7 @@ function fetchPokemon(nomePokemon) {
 }
 
 function editPokemonModal(pokemon) {
-	document.getElementById('exampleModalLabel').textContent = pokemon.name;
+	document.getElementById('staticBackdropLabel').textContent = pokemon.name;
 	const modalBody = document.getElementById('modal-body');
   modalBody.innerHTML = ""
 	const frontImage = document.createElement('img');
@@ -47,10 +47,8 @@ function editPokemonModal(pokemon) {
 function createPokemonCard(pokemon) {
 	const cardContainer = document.querySelector('#container-cards');
 	const pokemonCard = document.createElement('button');
-	// making button clickable to summon modal:
 	pokemonCard.setAttribute('data-bs-toggle', 'modal');
-	pokemonCard.setAttribute('data-bs-target', '#exampleModal');
-	// done
+	pokemonCard.setAttribute('data-bs-target', '#staticBackdrop');
 	pokemonCard.classList.add('cards');
 	const pokemonName = document.createElement('h4');
 	pokemonName.textContent = pokemon.name;
