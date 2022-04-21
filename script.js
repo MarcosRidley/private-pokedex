@@ -19,7 +19,7 @@ function fetchPokemon(nomePokemon) {
 }
 
 function addPokemonImagesToModal(pokemon, div) {
-  const frontImage = document.createElement('img');
+	const frontImage = document.createElement('img');
 	const backImage = document.createElement('img');
 	const ShinyFrontImage = document.createElement('img');
 	const ShinyBackImage = document.createElement('img');
@@ -27,25 +27,53 @@ function addPokemonImagesToModal(pokemon, div) {
 	backImage.src = pokemon.sprites.back_default;
 	ShinyFrontImage.src = pokemon.sprites.front_shiny;
 	ShinyBackImage.src = pokemon.sprites.back_shiny;
-	[frontImage, backImage, ShinyFrontImage, ShinyBackImage].forEach((image) => div.appendChild(image));
+	[frontImage, backImage, ShinyFrontImage, ShinyBackImage].forEach((image) =>
+		div.appendChild(image)
+	);
+}
+
+function createHabilityList(pokemon, div) {
+  const habilityListTitle = document.createElement('h3');
+  habilityListTitle.classList.add('hability-list-title')
+  habilityListTitle.textContent = 'Habilities:'
+  div.appendChild(habilityListTitle)
+  const habilityContainer = document.createElement('div');
+  habilityContainer.classList.add('hability-container')
+  div.appendChild(habilityContainer)
+  pokemonHabilities = [];
+  pokemon.abilities.forEach((hability) => pokemonHabilities.push(hability.ability.name));
+  const searcheableAbility = pokemonHabilities.map((hability) => hability.split('-').join('_'));
+  let i = 0;
+  pokemonHabilities.forEach((hability) => {
+    const newHabilityParagraph = document.createElement('a');
+    newHabilityParagraph.textContent = hability;
+    habilityContainer.appendChild(newHabilityParagraph);
+    newHabilityParagraph.href = `https://bulbapedia.bulbagarden.net/wiki/${searcheableAbility[i]}_(Ability)`;
+    i++
+  });
 }
 
 function createStatList(pokemon, div) {
-  pokemon.stats.forEach((stat) => {
-    const thisStat = document.createElement('p');
-    thisStat.classList.add('stats')
-    thisStat.textContent = `${stat.stat.name}: ${stat.base_stat}`;
-    div.appendChild(thisStat);
-  })
+  const statTitle = document.createElement('h3');
+  statTitle.textContent = "Stats:";
+  div.appendChild(statTitle)
+  const StatContainer = document.createElement('div');
+  div.appendChild(StatContainer)
+	pokemon.stats.forEach((stat) => {
+		const thisStat = document.createElement('p');
+		thisStat.classList.add('stats');
+		thisStat.textContent = `${stat.stat.name}: ${stat.base_stat}`;
+		StatContainer.appendChild(thisStat);
+	});
 }
 
 function editPokemonModal(pokemon) {
 	document.getElementById('staticBackdropLabel').textContent = pokemon.name;
 	const modalBody = document.getElementById('modal-body');
-  modalBody.innerHTML = ""
-  const imagesDiv = document.createElement('div');
-  modalBody.appendChild(imagesDiv)
-addPokemonImagesToModal(pokemon, imagesDiv)
+	modalBody.innerHTML = '';
+	const imagesDiv = document.createElement('div');
+	modalBody.appendChild(imagesDiv);
+	addPokemonImagesToModal(pokemon, imagesDiv);
 	if (pokemon.name !== 'arceus') {
 		if (pokemon.types[1]) {
 			createTyping(
@@ -57,11 +85,15 @@ addPokemonImagesToModal(pokemon, imagesDiv)
 			createTyping(pokemon.types[0].type.name, false, modalBody);
 		}
 	}
-  const statList = document.createElement('div');
-  statList.classList.add('stat-list')
-  createStatList(pokemon, statList);
-  modalBody.appendChild(statList)
-}
+  const pokemonHabilityList = document.createElement('div');
+  pokemonHabilityList.classList.add('hability-list');
+  createHabilityList(pokemon, pokemonHabilityList);
+  modalBody.appendChild(pokemonHabilityList);
+	const statList = document.createElement('div');
+	statList.classList.add('stat-list');
+	createStatList(pokemon, statList);
+	modalBody.appendChild(statList);
+};
 
 function createPokemonCard(pokemon) {
 	const cardContainer = document.querySelector('#container-cards');
@@ -91,7 +123,9 @@ function createPokemonCard(pokemon) {
 	} else {
 		createArceusTyping;
 	}
-  pokemonCard.addEventListener('click', () => {editPokemonModal(pokemon)})
+	pokemonCard.addEventListener('click', () => {
+		editPokemonModal(pokemon);
+	});
 	cardContainer.appendChild(pokemonCard);
 }
 
