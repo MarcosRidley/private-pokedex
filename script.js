@@ -22,6 +22,8 @@ function editPokemonModal(pokemon) {
 	document.getElementById('staticBackdropLabel').textContent = pokemon.name;
 	const modalBody = document.getElementById('modal-body');
   modalBody.innerHTML = ""
+  const imagesDiv = document.createElement('div');
+  modalBody.appendChild(imagesDiv)
 	const frontImage = document.createElement('img');
 	const backImage = document.createElement('img');
 	const ShinyFrontImage = document.createElement('img');
@@ -30,7 +32,7 @@ function editPokemonModal(pokemon) {
 	backImage.src = pokemon.sprites.back_default;
 	ShinyFrontImage.src = pokemon.sprites.front_shiny;
 	ShinyBackImage.src = pokemon.sprites.back_shiny;
-	[frontImage, backImage, ShinyFrontImage, ShinyBackImage].forEach((image) => modalBody.appendChild(image));
+	[frontImage, backImage, ShinyFrontImage, ShinyBackImage].forEach((image) => imagesDiv.appendChild(image));
 	if (pokemon.name !== 'arceus') {
 		if (pokemon.types[1]) {
 			createTyping(
