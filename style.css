@@ -50,14 +50,69 @@ small {
 .type {
     padding-right: 5px;
     padding-left: 5px;
-    border: solid 2px black;
-    border-radius: 4%;
+    border-radius: 3px;
+    line-height: 18px;
+    text-align: center;
 
 }
 p{
     margin-top: 0px;
     margin-bottom: 0px;
+    font-size: 12px;
+    font-family: "Fira Sans","Trebuchet MS",Ubuntu,Helvetica,Arial,sans-serif;
 }
-.eletric{
+
+.electric { 
     background-color: yellow;
+}
+.normal {
+    background-color: red
+}
+.water {
+    background-color: rgb(95, 95, 235)
+}
+.grass {
+    background-color: rgb(136, 233, 91)
+}
+.poison {
+    background-color: rgba(192, 101, 192, 0.534)
+}
+.ice {
+    background-color: rgb(98, 195, 233)
+}
+.fighting {
+    background-color: rgb(212, 105, 105)
+}
+.ground {
+    background-color: rgb(199, 154, 111)
+}
+.flying {
+    background-color: rgb(146, 105, 212)
+}
+.psychic {
+    background-color: rgb(223, 83, 188)
+}
+.bug {
+    background-color: rgb(212, 240, 52)
+}
+.rock {
+    background-color: rgb(192, 170, 109)
+}
+.ghost {
+    background-color: rgb(168, 125, 224)
+}
+.dragon {
+    background-color: rgb(114, 76, 150)
+}
+.dark {
+    background-color: rgb(83, 62, 38)
+}
+.steel {
+    background-color: rgb(107, 99, 93)
+}
+.fairy {
+    background-color: rgb(124, 91, 123)
+}
+.fire {
+    background-color: rgb(221, 101, 101)
 }

@@ -12,7 +12,8 @@ function fetchAllPokemon() {
 async function fetchPokemon(nomePokemon) {
 	await fetch(`https://pokeapi.co/api/v2/pokemon/${nomePokemon}`)
 		.then((response) => response.json())
-		.then((pokemonData) => { createPokemonCard(pokemonData)})
+		.then((pokemonData) => { 
+			createPokemonCard(pokemonData)})
 		.catch((erro) => console.log('Ocorreu um erro no acesso a API', erro));
 }
 
