@@ -31,11 +31,11 @@ function addPokemonImagesToModal(pokemon, div) {
 }
 
 function createStatList(pokemon, div) {
-  const statOrder = ['hp', 'attack','defense','special-attack','special-defense','speed'];
   pokemon.stats.forEach((stat) => {
     const thisStat = document.createElement('p');
-    thisStat.textContent = `${stat.stat.name}: ${stat.base_stat}`
-    div.appendChild(thisStat)
+    thisStat.classList.add('stats')
+    thisStat.textContent = `${stat.stat.name}: ${stat.base_stat}`;
+    div.appendChild(thisStat);
   })
 }
 
@@ -58,7 +58,7 @@ addPokemonImagesToModal(pokemon, imagesDiv)
 		}
 	}
   const statList = document.createElement('div');
-
+  statList.classList.add('stat-list')
   createStatList(pokemon, statList);
   modalBody.appendChild(statList)
 }
