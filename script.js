@@ -1,20 +1,21 @@
 // import fetch from 'node-fetch';
 
-async function fetchAllPokemon() {
-	await fetch('https://pokeapi.co/api/v2/pokemon?limit=898&offset=0')
-		.then((response) => response.json())
-		.then((pokemonData) =>
-			pokemonData.results.forEach((pokemon) => fetchPokemon(pokemon.name))
-		).then()
-		.catch((erro) => console.log('Ocorreu um erro no acesso a API', erro));
-}
 
-async function fetchPokemon(nomePokemon) {
-	await fetch(`https://pokeapi.co/api/v2/pokemon/${nomePokemon}`)
-		.then((response) => response.json())
-		.then((pokemonData) => { 
-			createPokemonCard(pokemonData)})
-		.catch((erro) => console.log('Ocorreu um erro no acesso a API', erro));
+async function fetchAllPokemon() {
+  const allPokes = await (await fetch('https://pokeapi.co/api/v2/pokemon?limit=898&offset=0')).json();
+  const resolvedPromises = await Promise.all(allPokes.results.map((item) => fetchPokemon(item.name)))
+resolvedPromises.forEach(async (item) => { 
+    const result = await item.json()
+    createPokemonCard(result)
+  })
+}
+//{ "NAME": "ronaldo"}
+//{ name: "ronaldo"}
+//
+
+
+function fetchPokemon(nomePokemon) {
+	  return fetch(`https://pokeapi.co/api/v2/pokemon/${nomePokemon}`)
 }
 
  function createPokemonCard(pokemon) {
@@ -67,10 +68,11 @@ function createArceusTyping(card) {
 
 
 
-function createAllPokeList() {
-  try { fetchAllPokemon()
+async function createAllPokeList() {
+  try {
+    fetchAllPokemon()
   } catch(error) {
-    console.log("Ocorreu um erro: ", error)
+    console.log("Ocorreu um erro: ", error.message)
   }
 }
 
