@@ -142,6 +142,28 @@ p{
     background-color: rgb(221, 101, 101)
 }
 
+.cardss{
+    width: 250px;
+    box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+    height: 300px;
+    border-radius: 5px;
+    backdrop-filter: blur(1120px);
+    background-color: rgba(255, 6, 6, 0.2);
+    padding: 10px;
+    text-align: center;
+}
+.cardss img {
+    height: 60%;
+}
+.background {
+    background-color: rgb(184, 185, 184);
+    height: 320px;
+    padding: 10px;
+    margin: auto;
+    top: 200px;
+    position: absolute;
+    
+}
 @media (max-width: 1360px) {
     main {
         width: 70%;
