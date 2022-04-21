@@ -82,7 +82,7 @@ window.onload = createAllPokeList;
 
 function filterPokemon(event) {
 	if (allCards.length === 0) allCards = document.querySelectorAll('.cards');
-	const input = event.target.value;
+	const input = event.target.value.toLowerCase();
 	document.querySelectorAll('.cards').length === allCards.length
 		? allCards.forEach((card) => card.parentElement.removeChild(card))
 		: [...document.querySelectorAll('.cards')].forEach((card) =>
@@ -106,5 +106,3 @@ function filterPokemon(event) {
 document
 	.querySelector('#container-pesquisa input')
 	.addEventListener('keyup', filterPokemon);
-
-  // test
