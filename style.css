@@ -49,14 +49,49 @@ small {
 .type {
     padding-right: 5px;
     padding-left: 5px;
-    border: solid 2px black;
-    border-radius: 4%;
+    border-radius: 3px;
+    line-height: 18px;
+    text-align: center;
 
 }
 p{
     margin-top: 0px;
     margin-bottom: 0px;
+    font-size: 12px;
 }
-.eletric{
+.eletric { 
     background-color: yellow;
+}
+.normal {
+    background-color: red
+}
+.water {
+    background-color: rgb(95, 95, 235)
+}
+.grass {
+    background-color: rgb(136, 233, 91)
+}
+.normal {
+    background-color: red
+}
+.normal {
+    background-color: red
+}
+.normal {
+    background-color: red
+}
+.normal {
+    background-color: red
+}
+.normal {
+    background-color: red
+}
+.normal {
+    background-color: red
+}
+.normal {
+    background-color: red
+}
+.normal {
+    background-color: red
 }
