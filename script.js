@@ -1,7 +1,7 @@
 // import fetch from 'node-fetch';
 
-function fetchAllPokemon() {
-	fetch('https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0')
+async function fetchAllPokemon() {
+	await fetch('https://pokeapi.co/api/v2/pokemon?limit=898&offset=0')
 		.then((response) => response.json())
 		.then((pokemonData) =>
 			pokemonData.results.forEach((pokemon) => fetchPokemon(pokemon.name) )
@@ -25,8 +25,8 @@ async function fetchPokemon(nomePokemon) {
 	pokemonName.textContent = pokemon.name;
 	const pokemonPicture = document.createElement('img');
 	pokemonPicture.src = pokemon.sprites.front_default;
-	const pokemonId = document.createElement('p');
-	pokemonId.textContent = pokemon.id;
+	const pokemonId = document.createElement('small');
+	pokemonId.textContent = `#${pokemon.id}`;
 	pokemonCard.appendChild(pokemonName);
 	pokemonCard.appendChild(pokemonPicture);
 	pokemonCard.appendChild(pokemonId);
