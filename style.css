@@ -3,6 +3,9 @@
 .navbar-nav {
     margin: auto;
 }
+body{
+    background-color: rgb(243, 86, 86);
+}
 main {
     width: 40%;
     margin: auto;
@@ -10,20 +13,25 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-
 }
 
 #container-pesquisa {
-    width: 45%;
+    width:60%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
     margin-top: 5%;
-    
+    background-color: rgb(113, 183, 240);
+    border-radius: 5px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.7);
+}
+#container-pesquisa input{
+    width: 90%;
+    margin-bottom:10px ;
 }
 #container-pesquisa h2 {
-    margin-bottom: 30px;
+    margin-bottom: 18px;
 }
 
 #container-cards {
@@ -31,17 +39,22 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: rgb(113, 183, 240);
+    border-radius: 10px;
+    box-shadow: 5px 3px 10px rgba(0,0,0,0.7);
+    
 }
 .cards {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(212, 212, 212, 0.247);
+    background-color: rgba(247, 247, 247, 0.808);
     width: 200px;
     border: solid 2px black;
     border-radius: 5px;
     margin-top: 30px;
+    box-shadow: 1px 0 3px rgba(0,0,0,0.7);
 }
 .cards h4 {
     text-transform: capitalize;
@@ -144,7 +157,7 @@ p{
     background-color: rgb(255, 0, 0);
 }
 .modal {
-    padding-top: 10%;  
+    padding-top: 5%;  
 
 }
 
