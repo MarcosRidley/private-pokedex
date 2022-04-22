@@ -144,7 +144,7 @@ p{
     background-color: rgb(255, 0, 0);
 }
 .modal {
-    padding-top: 15%;  
+    padding-top: 10%;  
 
 }
 
@@ -213,6 +213,7 @@ p{
     border-radius: 5px;
     padding: 4px;
     align-items: center;
+    margin: 5px 0;
 }
 .hability-container {
     display: flex;
@@ -220,7 +221,6 @@ p{
     justify-content: flex-start;
     width: 90%;
     align-items: center;
-    
 }
 .hability-container a{
     padding: 0 2px;
@@ -230,11 +230,13 @@ p{
     color: black;
     border: 1px solid black;
     border-radius: 5px;
-    margin: 0 5px;
+    margin: 0 3px;
     font-size: 16px;
     justify-content: center;
 }
-
+.hability-container a:nth-child(1){
+    margin-left: 7px;
+}
 .stat-list {
     padding: 4px;
     background-color: rgba(202, 202, 202, 0.342);
@@ -267,9 +269,35 @@ p{
 .stats:nth-child(1){
     border-left: 0;
 }
-
+.hability-container a:hover{
+    background-color: rgba(221, 231, 253, 0.904);
+    transform: scale(1.05);
+}
 #modal-body div:nth-child(1){
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+.damage-calculator {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    width: 100%;
+    background-color: rgba(216, 216, 216, 0.815);
+    border-radius: 5px;
+}
+.damage-calculator div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+.damage-calculator div div p{
+    margin-bottom: 4px;
+    text-transform: capitalize;
+    text-shadow: 0px 0px 0.5px black;
+}
+.damage-calculator div div p:hover{
+    transform: scale(1.09)
 }
