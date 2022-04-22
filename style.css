@@ -305,6 +305,9 @@ p{
 .damage-calculator div div p:hover{
     transform: scale(1.09)
 }
+#spacer {
+    margin:30px
+}
 
 .footer {
     background-color: rgb(41, 41, 41);
