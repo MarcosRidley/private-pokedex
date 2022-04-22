@@ -293,7 +293,7 @@ damageCalculator.appendChild(halfTimesDmg)
 //quarter dmg 
 const quarterTimesDmg = document.createElement('div');
 const quarterTimesDmgTitle = document.createElement('h5');
-quarterTimesDmgTitle.textContent = "1/2 damage";
+quarterTimesDmgTitle.textContent = "1/4 damage";
 quarterTimesDmg.appendChild(quarterTimesDmgTitle);
 const quarterTimesDmgTypes = document.createElement('div');
 quarterTimesDmg.appendChild(quarterTimesDmgTypes);
