@@ -36,7 +36,7 @@ function addPokemonImagesToModal(pokemon, div) {
 function createHabilityList(pokemon, div) {
 	const habilityListTitle = document.createElement('h3');
 	habilityListTitle.classList.add('hability-list-title');
-	habilityListTitle.textContent = 'Habilities:';
+	habilityListTitle.textContent = 'Habilities';
 	div.appendChild(habilityListTitle);
 	const habilityContainer = document.createElement('div');
 	habilityContainer.classList.add('hability-container');
@@ -66,7 +66,7 @@ function createHabilityList(pokemon, div) {
 
 function createStatList(pokemon, div) {
 	const statTitle = document.createElement('h3');
-	statTitle.textContent = 'Stats:';
+	statTitle.textContent = 'Stats';
 	div.appendChild(statTitle);
 	const StatContainer = document.createElement('div');
 	div.appendChild(StatContainer);
