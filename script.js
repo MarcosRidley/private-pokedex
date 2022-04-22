@@ -262,6 +262,7 @@ function addTypechartToModal(typechart) {
 	const modalfooter = document.querySelector('.modal-footer');
 	modalfooter.innerHTML = "";
 	const damageCalculator = document.createElement('div');
+	damageCalculator.classList.add('damage-calculator')
 	modalfooter.appendChild(damageCalculator);
 
 	//4x dmg
