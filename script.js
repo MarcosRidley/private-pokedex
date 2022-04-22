@@ -13,6 +13,7 @@ async function fetchAllPokemon() {
 		const result = await item.json();
 		createPokemonCard(result);
 	});
+	killLoadingIndicator()
 }
 
 function fetchPokemon(nomePokemon) {
@@ -307,6 +308,10 @@ Object.keys(typechart).forEach((key) => {
 	if(typechart[key] === 1) halfTimesDmgTypes.appendChild(element);
 	if(typechart[key] === 2) quarterTimesDmgTypes.appendChild(element);
 })
+}
+
+function killLoadingIndicator() {
+document.getElementById('loading-indicator').remove();
 }
 
 createAllPokeList();
